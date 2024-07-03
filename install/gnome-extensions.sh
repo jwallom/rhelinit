@@ -3,11 +3,20 @@
 # tactile
 # just-perfection-desktop
 
-#Setup schemas
+printf "Configuring Gnome Extensions...\n\n"
 
-sudo cp ~/.local/share/gnome-shell/extensions/tactile@lundal.io/schemas/org.gnome.shell.extensions.tactile.gschema.xml /usr/share/glib-2.0/schemas
-sudo cp ~/.local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection/schemas/org.gnome.shell.extensions.just-perfection.gschema.xml /usr/share/glib-2.0/schemas
-sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+#Setup schemas
+if [ -f ~/.local/share/gnome-shell/extensions/tactile@lundal.io/schemas/org.gnome.shell.extensions.tactile.gschema.xml ]; then
+	sudo cp ~/.local/share/gnome-shell/extensions/tactile@lundal.io/schemas/org.gnome.shell.extensions.tactile.gschema.xml /usr/share/glib-2.0/schemas
+	sudo cp ~/.local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection/schemas/org.gnome.shell.extensions.just-perfection.gschema.xml /usr/share/glib-2.0/schemas
+	sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+else
+	printf "Error: Tactile and/or Just-Desktop-Perfection\n"
+	printf "Install these from the gnome extension site and rerun\n"
+	printf "https://extensions.gnome.org/extension/4548/tactile/\n"
+	printf "https://extensions.gnome.org/extension/3843/just-perfection/\n\n"
+	exit 1;
+fi
 
 # Tactile Setup:
 gsettings set org.gnome.shell.extensions.tactile col-0 1
