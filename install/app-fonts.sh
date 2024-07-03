@@ -15,7 +15,7 @@ rm -rf DejaVuSansMono.zip DejaVuSansFont
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip
 unzip CascadiaMono.zip -d CascadiaFont
 cp CascadiaFont/*.ttf ~/.local/share/fonts
-rm -rf CascadiaMono.zip CascadiaFon
+rm -rf CascadiaMono.zip CascadiaFont
 
 fc-cache
 cd -
