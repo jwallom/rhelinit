@@ -30,3 +30,10 @@ about this.
 
 Possibly adding some breaks in here to allow for run time decisions could make
 this useful for others or just for simpler test installs/temp machines.
+
+## Acknowledgment
+
+Some of this was from older checklists I had, but I finally was inspired to get
+this put together thanks to some recent reloading that has become necessary
+with work, needing to spin up some temp machines, and DHH's
+[Omakub](https://omakub.org/) project.
