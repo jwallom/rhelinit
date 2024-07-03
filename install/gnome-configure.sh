@@ -5,6 +5,9 @@ printf "Configuring Gnome Settings...\n\n"
 # Set DejaVuSansM Mono as the default monospace font
 gsettings set org.gnome.desktop.interface monospace-font-name 'DejaVuSansM Nerd Font Mono'
 
+# Set caps lock key to be ctr key
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
+
 # Use 6 fixed workspaces instead of dynamic mode
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
