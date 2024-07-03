@@ -1,6 +1,8 @@
 #!/bin/bash
 # This sets up gnome on RHEL 9 for my settings.
 
+printf "Installing Fonts...\n\n"
+
 # Setup fonts
 mkdir -p ~/.local/share/fonts
 

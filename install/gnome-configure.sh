@@ -1,5 +1,7 @@
 #!/bin/bash
 
+printf "Configuring Gnome Settings...\n\n"
+
 # Set DejaVuSansM Mono as the default monospace font
 gsettings set org.gnome.desktop.interface monospace-font-name 'DejaVuSansM Nerd Font Mono'
 
