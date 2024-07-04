@@ -13,6 +13,7 @@ These are the items I hope to have this configure and setup automatically.
   - [x] nvim
   - [ ] yadm
   - [ ] flameshot
+  - [ ] openvpn
 - [x] Install fonts
 - [x] Install gnome extension
 - [x] Configure gnome extensions
