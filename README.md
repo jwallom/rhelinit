@@ -10,8 +10,9 @@ These are the items I hope to have this configure and setup automatically.
 - [ ] Install base software
   - [ ] wezterm
   - [ ] keychain
-  - [ ] nvim
+  - [x] nvim
   - [ ] yadm
+  - [ ] flameshot
 - [x] Install fonts
 - [x] Install gnome extension
 - [x] Configure gnome extensions
