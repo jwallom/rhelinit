@@ -9,7 +9,7 @@ These are the items I hope to have this configure and setup automatically.
 
 - [ ] Install base software
   - [ ] wezterm
-  - [ ] keychain
+  - [x] keychain
   - [x] nvim
   - [ ] yadm
   - [ ] flameshot
