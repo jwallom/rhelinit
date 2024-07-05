@@ -8,7 +8,7 @@ work in progress and has some things not setup yet.
 These are the items I hope to have this configure and setup automatically.
 
 - [ ] Install base software
-  - [ ] wezterm
+  - [x] wezterm
   - [x] keychain
   - [x] nvim
   - [x] yadm
