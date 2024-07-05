@@ -11,7 +11,7 @@ These are the items I hope to have this configure and setup automatically.
   - [ ] wezterm
   - [x] keychain
   - [x] nvim
-  - [ ] yadm
+  - [x] yadm
   - [ ] flameshot
   - [ ] openvpn
 - [x] Install fonts
