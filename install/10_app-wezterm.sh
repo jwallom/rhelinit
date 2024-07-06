@@ -1,6 +1,8 @@
 #!/bin/bash
 # Installs Wezterm
 
+wez_config="./config/wezterm.lua"
+
 printf "Installing Wezterm..\n\n"
 
 mkdir -p ~/projects/wezterm
@@ -16,3 +18,8 @@ fi
 cd -
 
 cp ./config/wezterm.lua ~/.wezterm.lua
+if [ -f $wez_config ]; then
+	cp $wez_config ~/.wezterm.lua
+else
+	printf "\n\nWezterm config not found\n\n"
+fi
