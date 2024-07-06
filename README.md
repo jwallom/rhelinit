@@ -1,37 +1,74 @@
-# RHEL 9 Configuration
+# RHEL 9 Setup for SysAdmins
 
-Trying to get my RHEL 9 configuration scripted for easier rebuilds. This is a
-work in progress and has some things not setup yet.
+A standard configuration for Red Hat Enterprise Linux 9 that is a keyboard
+first setup. The basic configuration will install some basic applications for
+getting up to speed and configurations for them and gnome.
 
-## ToDo
+To get started, download the setup tool and run setup.sh after a fresh install:
 
-These are the items I hope to have this configure and setup automatically.
+```console
+wget [insert download]
+unzip -d ~/.local/rhelinit [insert zipfile.zip]
+cd ~/.local/rhelinit
+bash setup.sh
+```
 
-- [ ] Install base software
-  - [x] wezterm
-  - [x] keychain
-  - [x] nvim
-  - [x] yadm
-  - [ ] flameshot
-  - [ ] openvpn
-- [x] Install fonts
-- [x] Install gnome extension
-- [x] Configure gnome extensions
-- [x] Configure gnome
-- [x] Single install script
+## Installed Items
 
-## Possible Future Ideas
+- [Wezterm](https://wezfurlong.org/wezterm/index.html): a modern terminal
+  emulator
+- [Neovim](https://neovim.io/): the PDE
+- [YADM](https://yadm.io/): configuration file manager
+- keychain: SSH and GPG keychain manager
+- [flameshot](https://flameshot.org/): more advanced screenshot tool
+- DejaVu and Cascadia Mono Nerd fonts
+- [Tactile](#tactile) and [Just Perfection](#just-perfection) Gnome Extensions
 
-### Basic configurations
+## Keyboard Shortcuts
 
-While I use yadm to manage my configs, it might be nice to get some basic
-configs set in case I am not setting up for a full installation.  I am not sure
-about this.
+| key              | Action                                |
+| ---              | ---                                   |
+| `[meta]` + `[#]` | Switches to workspace _#_             |
+| `[alt]` + `[#]`  | Switched to app _#_ on Gnome Dock     |
+| `[CapsLock]`     | This useless key is now a `[ctr]` key |
+| `[PrtScr]`       | Take a screenshot with flameshot      |
+| `[meta]` + `[t]` | launches [Tactile](#tactile)          |
 
-### Add some optional items
+## Additional changes
 
-Possibly adding some breaks in here to allow for run time decisions could make
-this useful for others or just for simpler test installs/temp machines.
+### Tactile
+
+<https://extensions.gnome.org/extension/4548/tactile/>
+
+Tactile allows re-sizing of windows similar to a tiling window manager. This
+configuration sets it up to use a 3x2 grid for layout. With the window you want
+to configure, press `[meta]`+`[t]` to launch tactile, then use and a grid pops
+up on the screen to setup the window size and location. The first key press is
+the top left corner of your window, and the second will be the bottom right.
+
+Tactile grid:
+
+| `[q]` | `[w]` | `[e]` |
+| `[a]` | `[s]` | `[d]` |
+
+### Neovim
+
+This sets up Neovim with a basic Lazy.nvim configuration based around TJ
+DeVries walk through and
+[Nvim Kickstart](https://github.com/nvim-lua/kickstart.nvim). I highly recommend
+reading through the config as it is very highly documented and helps you learn
+how to configure Neovim to be your personal development environment (PDE).
+
+[TJ's Video Walkthrough of Neovim Kickstart](https://youtu.be/m8C0Cq9Uv9o?si=SxvYUw5jUSohNsSN)
+
+### Just Perfection
+
+<https://extensions.gnome.org/extension/3843/just-perfection/>
+
+- Set animation speed to `2`
+- Sets the indicator for running apps on the Gnome Dash
+- Use Workspaces
+- Hide workspace switcher popup
 
 ## Acknowledgment
 
