@@ -48,8 +48,10 @@ the top left corner of your window, and the second will be the bottom right.
 
 Tactile grid:
 
-| `[q]` | `[w]` | `[e]` |
-| `[a]` | `[s]` | `[d]` |
+|          | col1  | col2  | col3  |
+| ---      | ---   | ---   | ---   |
+| **row1** | `[q]` | `[w]` | `[e]` |
+| **row2** | `[a]` | `[s]` | `[d]` |
 
 ### Neovim
 
