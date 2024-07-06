@@ -14,3 +14,5 @@ else
 	exit 1
 fi
 cd -
+
+cp ./config/wezterm.lua ~/.wezterm.lua
