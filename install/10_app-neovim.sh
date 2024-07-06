@@ -1,6 +1,8 @@
 #!/bin/bash
 # Installs Neovim.
 
+config="./config/nvim.lua"
+
 # Neovim 0.10.0 sha256 from:
 # https://github.com/neovim/neovim/releases
 versha="be1f0988d0de71c375982b87b86cd28d2bab35ece8285abe3b0aac57604dfc5a"
@@ -20,3 +22,10 @@ tar -zxf nvim-linux64.tar.gz
 ln -s ~/projects/neovim/nvim-linux64/bin/nvim ~/bin/nvim
 rm nvim-linux64.tar.gz
 cd -
+
+if [ -f $config ]; then
+	mkdir -p ~/.config/nvim
+	cp $config ~/.config/nvim/init.lua
+else
+	printf "\n\nNeovim config not found\n\n"
+fi
