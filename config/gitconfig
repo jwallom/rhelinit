@@ -1,0 +1,20 @@
+[color]
+  ui = auto
+[core]
+  editor = ~/bin/nvim
+  pager = less -F -X
+[credential]
+  helper = cache
+[alias]
+  co = checkout
+  ci = commit -v
+  st = status
+  b = branch
+  st = status -sb
+  ll = log --oneline
+  dv = difftool -t vimdiff -y
+  p = pull --ff-only
+  hist = log --pretty=format:'%C(yellow)%h%Creset %ad |%C(yellow)%d%Creset %s [%C(green)%an%Creset]' --graph --date=short
+[push]
+  default = simple
+
