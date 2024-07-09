@@ -6,6 +6,10 @@ getting up to speed and configurations for them and gnome.
 
 To get started, download the setup tool and run setup.sh after a fresh install:
 
+Before starting, make sure to install [Tactile](#tactile) and [Just
+Perfection](#just-perfection) before continuing until we figure out how to
+install gnome extensions via a CLI tool.
+
 ```console
 wget [insert download]
 unzip -d ~/.local/rhelinit [insert zipfile.zip]
