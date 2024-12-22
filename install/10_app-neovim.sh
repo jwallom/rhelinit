@@ -5,7 +5,7 @@ nvim_config="./config/nvim.lua"
 
 # Neovim 0.10.0 sha256 from:
 # https://github.com/neovim/neovim/releases
-versha="be1f0988d0de71c375982b87b86cd28d2bab35ece8285abe3b0aac57604dfc5a"
+versha="be189915a2a0da3615576e2db06a7c714aef0ae926b4da6107e589a3cc623e5c"
 
 printf "Installing Neovim...\n\n"
 
