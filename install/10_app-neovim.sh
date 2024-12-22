@@ -9,7 +9,7 @@ versha="be1f0988d0de71c375982b87b86cd28d2bab35ece8285abe3b0aac57604dfc5a"
 
 printf "Installing Neovim...\n\n"
 
-sudo dnf install ripgrep -y
+sudo dnf install ripgrep npm -y
 
 mkdir -p ~/projects/neovim
 cd ~/projects/neovim
