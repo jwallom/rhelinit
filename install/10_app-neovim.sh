@@ -26,8 +26,12 @@ rm nvim-linux64.tar.gz
 cd -
 
 if [ -f $nvim_config ]; then
-	mkdir -p ~/.config/nvim
-	cp $nvim_config ~/.config/nvim/init.lua
+	if [ ! -f $HOME/.config/nvim/init.lua ]; then
+		mkdir -p ~/.config/nvim
+		cp $nvim_config ~/.config/nvim/init.lua
+	else
+		printf "\n\nExisting Neovim config found\n\n"
+	fi
 else
 	printf "\n\nNeovim config not found\n\n"
 fi
