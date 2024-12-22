@@ -10,9 +10,9 @@ justper_schema="$HOME/.local/share/gnome-shell/extensions/just-perfection-deskto
 
 if [ -f $tactile_schema ] && [ -f $justper_schema ]; then
 	#Setup schemas
-	sudo cp $tactile_schema /usr/share/glib-2.0/schemas
-	sudo cp $justper_schema /usr/share/glib-2.0/schemas
-	sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+	sudo cp $tactile_schema $HOME/.local/share/glib-2.0/schemas
+	sudo cp $justper_schema $HOME/.local/share/glib-2.0/schemas
+	glib-compile-schemas $HOME/.local/share/glib-2.0/schemas/
 
 	# Tactile Setup:
 	gsettings set org.gnome.shell.extensions.tactile col-0 1
