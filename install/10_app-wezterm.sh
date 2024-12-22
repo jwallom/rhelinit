@@ -19,7 +19,11 @@ cd -
 
 cp ./config/wezterm.lua ~/.wezterm.lua
 if [ -f $wez_config ]; then
-	cp $wez_config ~/.wezterm.lua
+	if [ ! -f $HOME/.wezterm.lua ]; then
+		cp $wez_config ~/.wezterm.lua
+	else
+		printf "\n\nExistin Wezterm config found\n\n"
+	fi
 else
 	printf "\n\nWezterm config not found\n\n"
 fi
