@@ -5,14 +5,6 @@
 
 printf "Configuring Gnome Extensions...\n\n"
 
-#pipx not in normal repo.  Need EPEL for it. Removing for now.
-#sudo dnf install pipx -y
-#pipx install gnome-extensions-cli --system-site-packages
-
-# Install new extensions
-#gext install tactile@lundal.io
-#gext install just-perfection-desktop@just-perfection
-
 tactile_schema="$HOME/.local/share/gnome-shell/extensions/tactile@lundal.io/schemas/org.gnome.shell.extensions.tactile.gschema.xml"
 justper_schema="$HOME/.local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection/schemas/org.gnome.shell.extensions.just-perfection.gschema.xml"
 
