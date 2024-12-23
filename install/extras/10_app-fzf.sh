@@ -1,26 +1,13 @@
 #!/bin/bash
 # Installs FZF v0.57.0
 
-file_name="fzf_auto.tar.gz"
-proj_dir="$HOME/projects/fzf"
-simlink="$HOME/bin/fzf"
+app_name="fzf"  #This is the name of the application. Should be lower case.
+file_type="tar.gz"  #Defaults to tar.gz, but is used to determine how to uncompress the installation. "tar.XX" and "zip" are valid
+proj_dir="$HOME/projects/$app_name"  #Change if you want installed in a different location
+simlink="$HOME/bin/$app_name"  #Change if you want the executable called something different than $app_name
+url="https://github.com/junegunn/fzf/releases/download/v0.57.0/fzf-0.57.0-linux_amd64.tar.gz"  #URL for the project to get the binaries
+checksum=false  #If you want to check the download's checksum, leave true. Requires the versha variable as the sha256sum to validate against
+versha="empty"
+linker=false #If this package creates a custom folder for each version and you want a consistant path for the symbolic link.
 
-printf "Installing fzf...\n\n"
-
-if [ ! -d $proj_dir ]; then
-	mkdir -p $proj_dir
-fi
-
-cd $proj_dir
-
-wget -O - https://github.com/junegunn/fzf/releases/download/v0.57.0/fzf-0.57.0-linux_amd64.tar.gz > "$file_name"
-
-tar -axf $file_name
-
-if [ -f $simlink ]; then
-	rm $simlink
-fi
-
-ln -s $proj_dir/fzf $simlink
-rm $file_name
-cd -
+install_software "$app_name" "$file_type" "$proj_dir" "$simlink" "$url" "$checksum" "$versha" "$linker"

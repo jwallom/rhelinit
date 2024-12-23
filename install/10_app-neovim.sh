@@ -1,45 +1,24 @@
 #!/bin/bash
 # Installs Neovim.
 
-file_name="nvim_auto.tar.gz"
-proj_dir="$HOME/projects/neovim"
-simlink="$HOME/bin/nvim"
-nvim_config="./config/nvim.lua"
+app_name="nvim"  #This is the name of the application. Should be lower case.
+file_type="tar.gz"  #Defaults to tar.gz, but is used to determine how to uncompress the installation. "tar.XX" and "zip" are valid
+proj_dir="$HOME/projects/$app_name"  #Change if you want installed in a different location
+simlink="$HOME/bin/$app_name"  #Change if you want the executable called something different than $app_name
+url="https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz"  #URL for the project to get the binaries
+checksum=true  #If you want to check the download's checksum, leave true. Requires the versha variable as the sha256sum to validate against
+versha="empty"
+linker=false #If this package creates a custom folder for each version and you want a consistant path for the symbolic link.
 
-printf "Installing Neovim...\n\n"
-
-sudo dnf install npm -y
-
-mkdir -p $proj_dir
-cd $proj_dir
-wget -O - https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz > "$file_name"
-shaval=$(sha256sum $file_name | awk '{print $1}')
+# This is an exampl for dynamically getting and setting the sha256sum from a repo.
 versha=$(wget -qO - https://github.com/neovim/neovim/releases/latest/ | grep "nvim-linux64.tar.gz$" | grep -v "snippet-clipboard" | awk '{print $3}' | awk -F'>' '{print $3}')
-if [ $versha == $shaval ]; then
-	printf "\n$shaval\n\n"
+
+# Now we can call the installer function. Requires 8 things
+install_software "$app_name" "$file_type" "$proj_dir" "$simlink" "$url" "$checksum" "$versha" "$linker"
+
+# We need npm to install some LSP function.
+if command -v npm &> /dev/null; then
+	printf "\nnpm is installed, skipping...\n\n"
 else
-	printf "\nIncorrect checksum! Aborting.\n\n"
-	printf "Expected: %s\n" "$versha"
-	printf "SHA256: %s\n" "$shaval"
-	exit 5
-fi
-tar -axf $file_name
-
-if [ -f $simlink ]; then
-	rm $simlink
-fi
-
-ln -s $proj_dir/nvim-linux64/bin/nvim $simlink
-rm $file_name
-cd -
-
-if [ -f $nvim_config ]; then
-	if [ ! -f $HOME/.config/nvim/init.lua ]; then
-		mkdir -p ~/.config/nvim
-		cp $nvim_config ~/.config/nvim/init.lua
-	else
-		printf "\n\nExisting Neovim config found\n\n"
-	fi
-else
-	printf "\n\nNeovim config not found\n\n"
+	sudo dnf install npm -y
 fi
