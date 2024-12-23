@@ -1,28 +1,36 @@
 #!/bin/bash
 # Installs Neovim.
 
+file_name="nvim_auto.tar.gz"
+proj_dir="$HOME/projects/neovim"
+simlink="$HOME/bin/nvim"
 nvim_config="./config/nvim.lua"
-
-# Neovim 0.10.0 sha256 from:
-# https://github.com/neovim/neovim/releases
-versha="be189915a2a0da3615576e2db06a7c714aef0ae926b4da6107e589a3cc623e5c"
 
 printf "Installing Neovim...\n\n"
 
-sudo dnf install ripgrep npm -y
+sudo dnf install npm -y
 
-mkdir -p ~/projects/neovim
-cd ~/projects/neovim
-wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-shaval=$(sha256sum nvim-linux64.tar.gz | awk '{print $1}')
+mkdir -p $proj_dir
+cd $proj_dir
+wget -O - https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz > "$file_name"
+shaval=$(sha256sum $file_name | awk '{print $1}')
+versha=$(wget -qO - https://github.com/neovim/neovim/releases/latest/ | grep "nvim-linux64.tar.gz$" | grep -v "snippet-clipboard" | awk '{print $3}' | awk -F'>' '{print $3}')
 if [ $versha == $shaval ]; then
 	printf "\n$shaval\n\n"
 else
-	printf "\n$shaval\n\n"
+	printf "\nIncorrect checksum! Aborting.\n\n"
+	printf "Expected: %s\n" "$versha"
+	printf "SHA256: %s\n" "$shaval"
+	exit 5
 fi
-tar -zxf nvim-linux64.tar.gz
-ln -s ~/projects/neovim/nvim-linux64/bin/nvim ~/bin/nvim
-rm nvim-linux64.tar.gz
+tar -axf $file_name
+
+if [ -f $simlink ]; then
+	rm $simlink
+fi
+
+ln -s $proj_dir/nvim-linux64/bin/nvim $simlink
+rm $file_name
 cd -
 
 if [ -f $nvim_config ]; then
