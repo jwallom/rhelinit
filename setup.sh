@@ -1,8 +1,10 @@
 #!/bin/bash
 
+source ./installer.sh
+
 #Run stuffs!
-for installer in ./install/*.sh; do source $installer; done
+for installer in ./install/*.sh; do source "$installer"; done
 
 bash ./extras.sh
 
-touch $HOME/.rhelinit_complete
+touch "$HOME/.rhelinit_complete"
