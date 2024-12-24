@@ -1,21 +1,16 @@
 # RHEL 9 Setup for SysAdmins
 
-A standard configuration for Red Hat Enterprise Linux 9 that is a keyboard
-first setup. The basic configuration will install some basic applications for
-getting up to speed and configurations for them and gnome.
+A standard configuration for Red Hat Enterprise Linux 9 that is a keyboard first setup. The basic
+configuration will install some basic applications for getting up to speed and configurations for
+them and gnome.
 
-To get started, download the setup tool and run setup.sh after a fresh install:
+Before starting, make sure to install [Tactile](#tactile) and [Just Perfection](#just-perfection)
+before continuing until we figure out how to install gnome extensions via a CLI tool.
 
-Before starting, make sure to install [Tactile](#tactile) and [Just
-Perfection](#just-perfection) before continuing until we figure out how to
-install gnome extensions via a CLI tool.
+## How to run
 
-```console
-wget [insert download]
-unzip -d ~/.local/rhelinit [insert zipfile.zip]
-cd ~/.local/rhelinit
-bash setup.sh
-```
+Download the latest release for a more stable experience, or checkout the latest version of this
+repository for experimental. Enter the repository and run `bash setup.sh`.
 
 ## Installed Items
 
@@ -44,11 +39,10 @@ bash setup.sh
 
 <https://extensions.gnome.org/extension/4548/tactile/>
 
-Tactile allows re-sizing of windows similar to a tiling window manager. This
-configuration sets it up to use a 3x2 grid for layout. With the window you want
-to configure, press `[meta]`+`[t]` to launch tactile, then use and a grid pops
-up on the screen to setup the window size and location. The first key press is
-the top left corner of your window, and the second will be the bottom right.
+Tactile allows re-sizing of windows similar to a tiling window manager. This configuration sets it up
+to use a 3x2 grid for layout. With the window you want to configure, press `[meta]`+`[t]` to launch
+tactile, then use and a grid pops up on the screen to setup the window size and location. The first
+key press is the top left corner of your window, and the second will be the bottom right.
 
 Tactile grid:
 
@@ -59,11 +53,10 @@ Tactile grid:
 
 ### Neovim
 
-This sets up Neovim with a basic Lazy.nvim configuration based around TJ
-DeVries walk through and
-[Nvim Kickstart](https://github.com/nvim-lua/kickstart.nvim). I highly recommend
-reading through the config as it is very highly documented and helps you learn
-how to configure Neovim to be your personal development environment (PDE).
+This sets up Neovim with a basic Lazy.nvim configuration based around TJ DeVries walk through and
+[Nvim Kickstart](https://github.com/nvim-lua/kickstart.nvim). I highly recommend reading through the
+config as it is very highly documented and helps you learn how to configure Neovim to be your
+personal development environment (PDE).
 
 [TJ's Video Walkthrough of Neovim Kickstart](https://youtu.be/m8C0Cq9Uv9o?si=SxvYUw5jUSohNsSN)
 
@@ -78,7 +71,6 @@ how to configure Neovim to be your personal development environment (PDE).
 
 ## Acknowledgment
 
-Some of this was from older checklists I had, but I finally was inspired to get
-this put together thanks to some recent reloading that has become necessary
-with work, needing to spin up some temp machines, and DHH's
-[Omakub](https://omakub.org/) project.
+Some of this was from older checklists I had, but I finally was inspired to get this put together
+thanks to some recent reloading that has become necessary with work, needing to spin up some temp
+machines, and DHH's [Omakub](https://omakub.org/) project.
