@@ -1,0 +1,27 @@
+name: Create Release Tarball
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  create-tarball:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Fetch all history for .gitattributes and submodules
+
+    - name: Create tar.gz
+      run: |
+        git archive -o release.tar.gz --format=tar.gz HEAD
+
+    - name: Upload release asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./release.tar.gz
+        asset_name: release.tar.gz
+        asset_content_type: application/gzip
